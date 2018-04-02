@@ -168,6 +168,13 @@ function onLoad() {
 
   // Add cube mesh to your three.js scene
   //scene.add(cube);
+  
+  var tetGeometry = new THREE.TetrahedronGeometry(1);
+  var tetMaterial = new THREE.MeshNormalMaterial();
+  var tet = new THREE.Mesh(tetGeometry, tetMaterial);
+  
+  tet.position.set(2, controls.userHeight, -1);
+  scene.add(tet);
 
   window.addEventListener('resize', onResize, true);
   window.addEventListener('vrdisplaypresentchange', onResize, true);
