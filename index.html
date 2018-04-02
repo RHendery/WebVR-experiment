@@ -128,6 +128,8 @@ var effect;
 var camera;
 // EnterVRButton for rendering enter/exit UI.
 var vrButton;
+var pano;
+  
 
 
 function onLoad() {
@@ -157,6 +159,9 @@ function onLoad() {
   // Add a repeating grid as a skybox.
 //  var loader = new THREE.TextureLoader();
 //  loader.load('img/box.png', onTextureLoaded);
+  
+  var loader = new THREE.TextureLoader();
+   loader.load('img/Greeley_pan_small_stars.jpg', onTextureLoaded);
 
   // Create 3D objects.
   //var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
@@ -203,15 +208,24 @@ function onLoad() {
 }
 
 function onTextureLoaded(texture) {
-  texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(boxSize, boxSize);
-
-  var geometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
+  var geometry = new THREE.SphereGeometry(1000, 32, 32);
   var material = new THREE.MeshBasicMaterial({
     map: texture,
-    color: 0x01BE00,
     side: THREE.BackSide
+  });
+
+  pano = new THREE.Mesh(geometry, material);
+  pano.position.y = 190;
+  scene.add(pano);
+  //texture.wrapS = THREE.RepeatWrapping;
+  //texture.wrapT = THREE.RepeatWrapping;
+  //texture.repeat.set(boxSize, boxSize);
+
+//  var geometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
+//  var material = new THREE.MeshBasicMaterial({
+//    map: texture,
+//    color: 0x01BE00,
+ //   side: THREE.BackSide
   });
 
   // Align the skybox to the floor (which is at y=0).
