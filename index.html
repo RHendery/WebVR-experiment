@@ -190,6 +190,7 @@ scene.add(light3);
   var tetMaterial = new THREE.MeshNormalMaterial();
  var tet = new Array(5);
   var fit = new THREE.Object3D();
+  
   var t = ((1 + Math.sqrt(5))/2);
 var fturn = 6.283/5;
 var axis = new THREE.Vector3( t, 1, 0 );
@@ -204,8 +205,8 @@ axis.normalize();
   fit.position.set(-2, controls.userHeight+1, -2);
 scene.add(fit);
   
-  tet.position.set(0, controls.userHeight, -1);
-  scene.add(tet);
+ // tet.position.set(0, controls.userHeight, -1);
+ // scene.add(tet);
 
   window.addEventListener('resize', onResize, true);
   window.addEventListener('vrdisplaypresentchange', onResize, true);
