@@ -119,7 +119,7 @@ var lastRenderTime = 0;
 // Currently active VRDisplay.
 var vrDisplay;
 // How big of a box to render.
-var boxSize = 5;
+//var boxSize = 5;
 // Various global THREE.Objects.
 var scene;
 var cube;
@@ -197,8 +197,8 @@ function onLoad() {
 
 function onTextureLoaded(texture) {
   texture.wrapS = THREE.RepeatWrapping;
-  texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(boxSize, boxSize);
+ // texture.wrapT = THREE.RepeatWrapping;
+  //texture.repeat.set(boxSize, boxSize);
 
   var geometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
   var material = new THREE.MeshBasicMaterial({
@@ -208,14 +208,14 @@ function onTextureLoaded(texture) {
   });
 
   // Align the skybox to the floor (which is at y=0).
-  skybox = new THREE.Mesh(geometry, material);
-  skybox.position.y = boxSize/2;
-  scene.add(skybox);
+  //skybox = new THREE.Mesh(geometry, material);
+  //skybox.position.y = boxSize/2;
+  //scene.add(skybox);
 
   // For high end VR devices like Vive and Oculus, take into account the stage
   // parameters provided.
-  setupStage();
-}
+ // setupStage();
+//}
 
 
 
