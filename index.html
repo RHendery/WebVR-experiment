@@ -173,7 +173,7 @@ function onLoad() {
   var tetMaterial = new THREE.MeshNormalMaterial();
   var tet = new THREE.Mesh(tetGeometry, tetMaterial);
   
-  tet.position.set(2, controls.userHeight, -1);
+  tet.position.set(0, controls.userHeight, -1);
   scene.add(tet);
 
   window.addEventListener('resize', onResize, true);
@@ -278,7 +278,7 @@ function setStageDimensions(stage) {
   scene.add(skybox);
 
   // Place the cube in the middle of the scene, at user height.
- // cube.position.set(0, controls.userHeight, 0);
+  tet.position.set(0, controls.userHeight, 0);
 }
 
 window.addEventListener('load', onLoad);
